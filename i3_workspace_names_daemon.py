@@ -46,6 +46,9 @@ def build_rename(i3, app_icons, delim, uniq):
         if window_class in app_icons and app_icons[window_class] in icons:
             return icons[app_icons[window_class]]
         else:
+            for app_name, app_icon in app_icons.items():
+                if app_name in window_class and app_icon in icons:
+                    return icons[app_icon]
             return window_class.lower()
 
     def rename(i3, e):
